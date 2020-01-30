@@ -1,3 +1,4 @@
+require 'pry'
 class Song
   attr_accessor :name, :artist_name
   @@all = []
@@ -55,8 +56,8 @@ class Song
   end
 
   def self.new_from_filename(file_type)
-    array = file_type.split(/\.mp3/)
-    name = array[0].split(/\ - /)
+    array = file_type.split(/.mp3/)
+    name = array[0].split(/ - /)
     new_song = self.create_by_name(name[1])
     new_song.artist_name = name[0]
     
